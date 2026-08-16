@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alianz Canine Worldwide — Sistema Visual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;600&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nv:#0E1B2D; --nv2:#1A2A3F; --nv3:#243549;
+  --gd:#C9A961; --gd-l:#D4B86A; --gd-d:#A88A44;
+  --cr:#F2EDE4; --cr-d:#E5DDC9; --cr-w:#FAF7F1;
+  --dm:#94A3B8; --dm-d:#64748B;
+  --display:'Inter Tight',-apple-system,sans-serif;
+  --serif:'Source Serif 4',Georgia,serif;
+  --body:'IBM Plex Sans',-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --jp:'Noto Sans JP',sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body); background:var(--nv); color:var(--cr); -webkit-font-smoothing:antialiased; line-height:1.5}
+a{color:inherit; text-decoration:none}
+
+.section{padding:120px 8vw; position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center}
+.section.compact{min-height:auto; padding:100px 8vw}
+.section.dark{background:var(--nv); color:var(--cr)}
+.section.light{background:var(--cr); color:var(--nv)}
+.section.deep{background:#08111F; color:var(--cr)}
+.container{max-width:1280px; margin:0 auto; width:100%}
+
+.page-mark{position:absolute; top:40px; left:8vw; right:8vw; display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; letter-spacing:0.08em; color:var(--gd); text-transform:lowercase; pointer-events:none}
+.page-mark span{display:inline-block}
+.page-mark .dim{color:var(--dm)}
+.section.light .page-mark{color:var(--gd-d)}
+.section.light .page-mark .dim{color:var(--dm-d)}
+
+.page-foot{position:absolute; bottom:40px; left:8vw; right:8vw; display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; letter-spacing:0.08em; color:var(--dm); pointer-events:none}
+.section.light .page-foot{color:var(--dm-d)}
+
+.eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:0.18em; color:var(--gd); text-transform:lowercase; margin-bottom:24px; display:block}
+.section.light .eyebrow{color:var(--gd-d)}
+
+h1,h2,h3,h4{font-family:var(--display); font-weight:600; line-height:1.05; letter-spacing:-0.025em}
+.h-mega{font-size:clamp(64px,9vw,128px); font-weight:600; line-height:0.92; letter-spacing:-0.035em}
+.h-xl{font-size:clamp(48px,6vw,88px); font-weight:600; line-height:0.95; letter-spacing:-0.03em}
+.h-lg{font-size:clamp(36px,4.5vw,64px); font-weight:600; line-height:1; letter-spacing:-0.025em}
+.h-md{font-size:clamp(24px,2.8vw,36px); font-weight:600; line-height:1.15; letter-spacing:-0.015em}
+.h-sm{font-size:18px; font-weight:600; line-height:1.3; letter-spacing:-0.01em}
+
+.serif-quote{font-family:var(--serif); font-style:italic; font-weight:400; letter-spacing:-0.005em}
+.gold{color:var(--gd)}
+.section.light .gold{color:var(--gd-d)}
+.muted{opacity:0.7}
+
+.body-lg{font-family:var(--body); font-size:18px; line-height:1.7; font-weight:400}
+.body-md{font-family:var(--body); font-size:15px; line-height:1.65; font-weight:400}
+.body-sm{font-family:var(--body); font-size:13px; line-height:1.55; font-weight:400}
+.mono-label{font-family:var(--mono); font-size:11px; letter-spacing:0.08em; color:var(--gd)}
+.section.light .mono-label{color:var(--gd-d)}
+
+.rule{height:0.5px; background:rgba(201,169,97,0.3); margin:24px 0; border:0}
+.section.light .rule{background:rgba(168,138,68,0.35)}
+
+.reveal{opacity:0; transform:translateY(24px); transition:opacity 1s ease, transform 1s ease}
+.reveal.in{opacity:1; transform:translateY(0)}
+.reveal-stagger > *{opacity:0; transform:translateY(20px); transition:opacity .9s ease, transform .9s ease}
+.reveal-stagger.in > *{opacity:1; transform:translateY(0)}
+.reveal-stagger.in > *:nth-child(1){transition-delay:0s}
+.reveal-stagger.in > *:nth-child(2){transition-delay:.08s}
+.reveal-stagger.in > *:nth-child(3){transition-delay:.16s}
+.reveal-stagger.in > *:nth-child(4){transition-delay:.24s}
+.reveal-stagger.in > *:nth-child(5){transition-delay:.32s}
+.reveal-stagger.in > *:nth-child(6){transition-delay:.40s}
+.reveal-stagger.in > *:nth-child(7){transition-delay:.48s}
+.reveal-stagger.in > *:nth-child(8){transition-delay:.56s}
+.reveal-stagger.in > *:nth-child(9){transition-delay:.64s}
+
+/* COVER */
+.cover{min-height:100vh; padding:80px 8vw; display:grid; grid-template-rows:auto 1fr auto; position:relative; background:var(--nv); overflow:hidden}
+.cover::before{content:''; position:absolute; inset:0; background-image:radial-gradient(circle at 20% 30%,rgba(201,169,97,0.07) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(201,169,97,0.05) 0%,transparent 50%); pointer-events:none}
+.cover-head{display:flex; justify-content:space-between; align-items:flex-start; position:relative; z-index:1}
+.cover-body{display:flex; flex-direction:column; justify-content:center; align-items:flex-start; position:relative; z-index:1; padding:40px 0}
+.cover-mark{font-family:var(--mono); font-size:11px; letter-spacing:0.16em; color:var(--gd); margin-bottom:48px; display:block; text-transform:lowercase}
+.cover-foot{display:flex; justify-content:space-between; align-items:flex-end; position:relative; z-index:1}
+
+/* TOC */
+.toc-grid{display:grid; grid-template-columns:1fr; gap:0; margin-top:40px}
+.toc-row{display:grid; grid-template-columns:100px 1fr 240px 80px; gap:24px; padding:24px 0; border-bottom:0.5px solid rgba(201,169,97,0.2); align-items:center; transition:padding-left .3s ease}
+.toc-row:hover{padding-left:12px}
+.toc-num{font-family:var(--mono); font-size:13px; color:var(--gd); letter-spacing:0.05em}
+.toc-title{font-family:var(--display); font-size:24px; font-weight:500; letter-spacing:-0.015em}
+.toc-desc{font-family:var(--body); font-size:13px; color:var(--dm); line-height:1.5}
+.toc-page{font-family:var(--mono); font-size:13px; color:var(--dm); text-align:right}
+
+/* PALETTE */
+.palette-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:18px; margin-top:60px}
+.swatch{aspect-ratio:0.85; border-radius:6px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden}
+.swatch-num{font-family:var(--mono); font-size:11px; letter-spacing:0.08em}
+.swatch-info{display:flex; flex-direction:column; gap:3px}
+.swatch-name{font-family:var(--display); font-size:18px; font-weight:600; line-height:1.1; letter-spacing:-0.01em}
+.swatch-hex{font-family:var(--mono); font-size:12px; opacity:0.75}
+.swatch-meta{display:flex; flex-direction:column; gap:6px; margin-top:14px; padding-top:14px; border-top:0.5px solid currentColor; opacity:0.55}
+.swatch-meta-row{display:flex; gap:8px; font-family:var(--mono); font-size:10px; letter-spacing:0.05em}
+.swatch-meta-row .k{opacity:0.7; min-width:28px}
+
+.palette-usage{margin-top:64px; display:grid; grid-template-columns:repeat(2,1fr); gap:48px}
+.usage-block h4{margin-bottom:18px}
+.usage-block ul{list-style:none; display:flex; flex-direction:column; gap:14px}
+.usage-block li{display:grid; grid-template-columns:14px 80px 1fr; gap:14px; align-items:baseline; font-family:var(--body); font-size:14px}
+.usage-block li::before{content:''; display:block; width:14px; height:14px; border-radius:3px}
+.usage-block li[data-c="nv"]::before{background:#0E1B2D; border:0.5px solid var(--gd)}
+.usage-block li[data-c="nv2"]::before{background:#1A2A3F; border:0.5px solid var(--gd)}
+.usage-block li[data-c="gd"]::before{background:#C9A961}
+.usage-block li[data-c="cr"]::before{background:#F2EDE4}
+.usage-block li[data-c="dm"]::before{background:#94A3B8}
+.usage-block li .pct{font-family:var(--mono); font-size:11px; color:var(--gd); letter-spacing:0.05em}
+.usage-block li .desc{color:rgba(242,237,228,0.78)}
+
+/* TYPOGRAPHY */
+.type-specimen{display:grid; grid-template-columns:1fr; gap:48px; margin-top:60px}
+.type-card{padding:48px 40px; background:rgba(255,255,255,0.02); border:0.5px solid rgba(201,169,97,0.2); border-radius:6px; position:relative}
+.type-card.cream{background:var(--cr); color:var(--nv); border-color:rgba(168,138,68,0.3)}
+.type-head{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px; padding-bottom:24px; border-bottom:0.5px solid rgba(201,169,97,0.25)}
+.type-card.cream .type-head{border-bottom-color:rgba(168,138,68,0.3)}
+.type-head-left{display:flex; flex-direction:column; gap:6px}
+.type-head .number{font-family:var(--mono); font-size:11px; letter-spacing:0.12em; color:var(--gd)}
+.type-card.cream .type-head .number{color:var(--gd-d)}
+.type-head .name{font-family:var(--display); font-size:26px; font-weight:500; letter-spacing:-0.015em}
+.type-head-right{font-family:var(--mono); font-size:11px; letter-spacing:0.06em; color:var(--dm); text-align:right; line-height:1.6}
+.type-card.cream .type-head-right{color:var(--dm-d)}
+.type-display{font-size:96px; line-height:0.95; letter-spacing:-0.04em; margin-bottom:22px; font-weight:500}
+.type-card .type-display.serif-italic{font-family:var(--serif); font-style:italic; font-weight:500}
+.type-card .type-display.display-tight{font-family:var(--display); font-weight:600}
+.type-card .type-display.body-sans{font-family:var(--body); font-weight:400}
+.type-card .type-display.mono-tech{font-family:var(--mono); font-weight:400; font-size:72px; letter-spacing:-0.02em}
+.type-card .type-display.jp-sans{font-family:var(--jp); font-weight:600; font-size:76px}
+.type-sample{font-size:22px; line-height:1.35; margin-bottom:24px; opacity:0.88}
+.type-meta{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:30px}
+.type-meta-item .label{font-family:var(--mono); font-size:10px; letter-spacing:0.12em; color:var(--gd); display:block; margin-bottom:6px; text-transform:lowercase}
+.type-card.cream .type-meta-item .label{color:var(--gd-d)}
+.type-meta-item .value{font-family:var(--body); font-size:13px; line-height:1.55}
+
+.scale-grid{margin-top:60px; display:grid; grid-template-columns:140px 1fr; gap:0}
+.scale-row{display:contents}
+.scale-row > *{padding:18px 0; border-bottom:0.5px solid rgba(201,169,97,0.15)}
+.scale-label{font-family:var(--mono); font-size:11px; letter-spacing:0.05em; color:var(--gd); padding-top:24px; align-self:start}
+.scale-sample{font-family:var(--display); font-weight:500; line-height:1; letter-spacing:-0.02em; color:var(--cr)}
+
+/* MULTILINGUAL */
+.lang-grid{margin-top:60px; display:flex; flex-direction:column; gap:24px}
+.lang-row{display:grid; grid-template-columns:50px 1fr; gap:24px; align-items:baseline; padding:14px 0; border-bottom:0.5px solid rgba(201,169,97,0.15)}
+.lang-code{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; color:var(--gd)}
+.lang-text{font-family:var(--display); font-size:32px; font-weight:600; line-height:1.2; letter-spacing:-0.02em}
+.lang-text.jp{font-family:var(--jp); font-size:28px}
+.lang-text .accent{font-family:var(--serif); font-style:italic; font-weight:500; color:var(--gd)}
+.lang-text.jp .accent{font-family:'Noto Serif JP',serif; font-style:normal; font-weight:500}
+
+.voice-example{margin-top:32px; padding:24px; background:rgba(201,169,97,0.05); border-left:2px solid var(--gd)}
+.voice-example .label{font-family:var(--mono); font-size:10px; letter-spacing:0.12em; color:var(--gd); margin-bottom:10px; display:block; text-transform:lowercase}
+.voice-example .quote{font-family:var(--serif); font-style:italic; font-size:18px; line-height:1.5}
+
+/* PHOTOGRAPHY */
+.photo-principles{display:grid; grid-template-columns:repeat(2,1fr); gap:40px; margin-top:60px}
+.photo-card{padding:32px; background:rgba(255,255,255,0.02); border-radius:6px; border:0.5px solid rgba(201,169,97,0.2)}
+.photo-card .num{font-family:var(--mono); font-size:11px; letter-spacing:0.12em; color:var(--gd); margin-bottom:18px; display:block}
+.photo-card h4{margin-bottom:14px}
+.photo-card p{font-family:var(--body); font-size:14px; line-height:1.65; color:rgba(242,237,228,0.78)}
+.photo-treatments{margin-top:48px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.treatment{aspect-ratio:4/5; border-radius:4px; position:relative; overflow:hidden; display:flex; align-items:flex-end; padding:18px; color:var(--cr)}
+.treatment::before{content:''; position:absolute; inset:0; opacity:0.95}
+.treatment.natural::before{background:linear-gradient(135deg,#3F4A38 0%,#1F2A1A 100%)}
+.treatment.golden::before{background:linear-gradient(135deg,#8A6A2D 0%,#3D2D14 100%)}
+.treatment.dramatic::before{background:linear-gradient(135deg,#2A2A2A 0%,#0A0A0A 100%)}
+.treatment .label{position:relative; z-index:1; font-family:var(--mono); font-size:11px; letter-spacing:0.08em; color:var(--gd-l)}
+.treatment .title{position:relative; z-index:1; font-family:var(--display); font-size:18px; font-weight:600; margin-top:6px; color:var(--cr)}
+
+/* SOCIAL MEDIA */
+.ig-feed{margin-top:60px}
+.ig-header{display:flex; align-items:center; gap:18px; padding:20px 0; border-bottom:0.5px solid rgba(201,169,97,0.2); margin-bottom:24px}
+.ig-avatar{width:56px; height:56px; border-radius:50%; background:var(--nv2); display:flex; align-items:center; justify-content:center; border:1px solid var(--gd); font-family:var(--display); font-weight:600; font-size:15px; color:var(--gd); letter-spacing:-0.01em}
+.ig-handle{display:flex; flex-direction:column}
+.ig-handle .name{font-family:var(--display); font-size:16px; font-weight:600}
+.ig-handle .bio{font-family:var(--body); font-size:12px; color:var(--dm); margin-top:2px}
+.ig-handle .bio .gold{color:var(--gd)}
+.ig-stats{margin-left:auto; display:flex; gap:24px; font-family:var(--mono); font-size:11px; color:var(--dm); letter-spacing:0.05em}
+.ig-stat strong{display:block; font-family:var(--display); font-size:14px; color:var(--cr); font-weight:600; margin-bottom:2px}
+.ig-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:6px}
+.ig-post{aspect-ratio:1; padding:18px; border-radius:2px; display:flex; flex-direction:column; position:relative; overflow:hidden}
+.ig-post.navy{background:var(--nv); color:var(--cr); border:0.5px solid rgba(201,169,97,0.15)}
+.ig-post.cream{background:var(--cr); color:var(--nv)}
+.ig-post.gold{background:var(--gd); color:var(--nv)}
+.ig-post.photo{background:linear-gradient(135deg,#3A3328 0%,#1A1A14 100%); color:var(--cr)}
+.ig-post .ig-mark{font-family:var(--mono); font-size:9px; letter-spacing:0.06em; color:var(--gd)}
+.ig-post.cream .ig-mark{color:var(--gd-d)}
+.ig-post.gold .ig-mark{color:var(--nv)}
+.ig-post.photo .ig-mark{color:var(--gd-l)}
+.ig-post .ig-bignum{font-family:var(--display); font-size:88px; font-weight:600; line-height:0.85; letter-spacing:-0.04em; margin-top:14px; color:var(--gd)}
+.ig-post.cream .ig-bignum{color:var(--gd-d)}
+.ig-post .ig-eyebrow{font-family:var(--body); font-size:9px; font-weight:500; letter-spacing:0.2em; line-height:1.4; margin-top:6px; opacity:0.9}
+.ig-post .ig-quote{font-family:var(--serif); font-style:italic; font-weight:500; font-size:15px; line-height:1.25; margin-top:12px}
+.ig-post .ig-credit{font-family:var(--body); font-size:9px; letter-spacing:0.1em; margin-top:10px; opacity:0.7}
+.ig-post .ig-tag{font-family:var(--display); font-size:14px; font-weight:600; line-height:1.15; margin-top:auto; letter-spacing:-0.01em}
+.ig-post .ig-tag .accent{font-family:var(--serif); font-style:italic; color:var(--gd)}
+.ig-post.cream .ig-tag .accent{color:var(--gd-d)}
+.ig-post .ig-foot{margin-top:auto; display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--mono); font-size:9px; letter-spacing:0.05em; color:var(--dm)}
+.ig-post.cream .ig-foot{color:var(--dm-d)}
+.ig-post.gold .ig-foot{color:rgba(14,27,45,0.7)}
+.ig-post.photo .ig-foot{color:rgba(242,237,228,0.6)}
+.ig-post .ig-pillar{font-family:var(--display); font-size:48px; font-weight:600; letter-spacing:-0.025em; line-height:0.9; margin-top:14px}
+.ig-post .ig-pillar-num{font-family:var(--mono); font-size:32px; font-weight:400; color:var(--gd)}
+.ig-post.cream .ig-pillar-num{color:var(--gd-d)}
+.ig-post .ig-photo-overlay{position:absolute; inset:0; background:radial-gradient(circle at 30% 40%,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.85) 100%); display:flex; align-items:center; justify-content:center; pointer-events:none}
+.ig-post .ig-photo-content{position:relative; z-index:1; display:flex; flex-direction:column; height:100%}
+.ig-post .ig-dot-pattern{position:relative; flex:1; display:flex; align-items:center; justify-content:center; margin:10px 0}
+
+.story-section{margin-top:80px}
+.story-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:32px}
+.story{aspect-ratio:9/16; border-radius:8px; padding:20px 16px; display:flex; flex-direction:column; position:relative; overflow:hidden}
+.story.navy{background:var(--nv); border:0.5px solid rgba(201,169,97,0.2); color:var(--cr)}
+.story.cream{background:var(--cr); color:var(--nv)}
+.story.gradient{background:linear-gradient(180deg,#0E1B2D 0%,#1A2A3F 100%); color:var(--cr)}
+.story.photo{background:linear-gradient(180deg,#3F352A 0%,#1A1410 100%); color:var(--cr)}
+.story .mark{font-family:var(--mono); font-size:9px; letter-spacing:0.08em; color:var(--gd)}
+.story.cream .mark{color:var(--gd-d)}
+.story .center{flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:8px}
+.story .center .lead{font-family:var(--serif); font-style:italic; font-size:11px; color:var(--gd); letter-spacing:0.08em}
+.story.cream .center .lead{color:var(--gd-d)}
+.story .center .big{font-family:var(--display); font-size:36px; font-weight:600; line-height:0.95; letter-spacing:-0.02em}
+.story .center .big.serif{font-family:var(--serif); font-style:italic; font-weight:500; font-size:24px}
+.story .center .sub{font-family:var(--body); font-size:10px; letter-spacing:0.12em; opacity:0.7; margin-top:4px}
+.story .foot{font-family:var(--mono); font-size:9px; letter-spacing:0.06em; color:var(--dm); display:flex; justify-content:space-between}
+.story.cream .foot{color:var(--dm-d)}
+
+.reels-section{margin-top:80px}
+.reels-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:32px}
+.reel{aspect-ratio:9/16; border-radius:6px; padding:24px 20px; display:flex; flex-direction:column; position:relative; overflow:hidden; background:#08111F; color:var(--cr); border:0.5px solid rgba(201,169,97,0.15)}
+.reel.warm{background:linear-gradient(160deg,#3A2F1F 0%,#1A140A 100%)}
+.reel.deep{background:#08111F}
+.reel .reel-mark{font-family:var(--mono); font-size:9px; letter-spacing:0.1em; color:var(--gd)}
+.reel .reel-title{font-family:var(--display); font-size:40px; font-weight:600; line-height:0.92; letter-spacing:-0.025em; margin-top:auto}
+.reel .reel-title.serif{font-family:var(--serif); font-style:italic; font-weight:500; font-size:30px}
+.reel .reel-sub{font-family:var(--body); font-size:11px; letter-spacing:0.14em; margin-top:8px; opacity:0.8}
+.reel .reel-play{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:54px; height:54px; border:1px solid var(--gd); border-radius:50%; display:flex; align-items:center; justify-content:center; opacity:0.7}
+.reel .reel-play::before{content:''; width:0; height:0; border-style:solid; border-width:8px 0 8px 13px; border-color:transparent transparent transparent var(--gd); margin-left:3px}
+
+/* RULES */
+.rules-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:60px}
+.rules-col h4{margin-bottom:24px; padding-bottom:14px; border-bottom:0.5px solid currentColor}
+.rules-col.do{color:var(--gd)}
+.rules-col.dont{color:#E27272}
+.rules-col .rule-item{display:grid; grid-template-columns:24px 1fr; gap:14px; padding:14px 0; border-bottom:0.5px solid rgba(201,169,97,0.15); align-items:flex-start}
+.rules-col .rule-item .mark{font-family:var(--mono); font-size:12px; font-weight:500}
+.rules-col .rule-item .text{font-family:var(--body); font-size:14px; color:var(--cr); line-height:1.55}
+
+/* COLOPHON */
+.colophon{padding:80px 8vw; background:var(--cr); color:var(--nv); display:grid; grid-template-columns:1fr 1fr; gap:64px; border-top:1px solid var(--gd)}
+.colophon-block h4{margin-bottom:18px; font-family:var(--display); font-size:18px; font-weight:600; letter-spacing:-0.01em}
+.colophon-block dl{display:grid; grid-template-columns:140px 1fr; gap:12px 16px}
+.colophon-block dt{font-family:var(--mono); font-size:11px; color:var(--gd-d); letter-spacing:0.06em; padding-top:2px}
+.colophon-block dd{font-family:var(--body); font-size:13px; color:var(--nv); line-height:1.5}
+
+@media (max-width: 900px){
+  .section{padding:80px 6vw}
+  .lang-grid,.rules-grid,.palette-usage,.photo-principles,.colophon{grid-template-columns:1fr}
+  .palette-grid{grid-template-columns:repeat(2,1fr)}
+  .ig-grid{gap:4px}
+  .story-grid{grid-template-columns:repeat(2,1fr)}
+  .reels-grid{grid-template-columns:repeat(2,1fr)}
+  .toc-row{grid-template-columns:60px 1fr 60px; gap:14px}
+  .toc-desc{display:none}
+  .type-display{font-size:64px !important}
+  .type-display.jp-sans{font-size:56px !important}
+  .type-display.mono-tech{font-size:52px !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== COVER ========== -->
+<section class="cover">
+  <div class="cover-head">
+    <div class="mono-label">manual de identidad visual</div>
+    <div class="mono-label" style="color:var(--dm)">edición 01 · 2026</div>
+  </div>
+
+  <div class="cover-body">
+    <span class="cover-mark reveal">atlas cinológico · sistema visual</span>
+    <h1 class="h-mega reveal" style="margin-bottom:28px">Alianz <span class="gold serif-quote" style="font-weight:500">Canine</span><br>Worldwide.</h1>
+    <p class="body-lg reveal" style="max-width:600px; opacity:0.85">Sistema visual y de comunicación de una organización cinológica global con presencia en sesenta países y treinta y cuatro años de historia.</p>
+  </div>
+
+  <div class="cover-foot">
+    <div>
+      <div class="mono-label" style="color:var(--dm); margin-bottom:4px">tijuana b.c. · méxico</div>
+      <div class="mono-label" style="color:var(--dm)">32°31'n · 117°02'w</div>
+    </div>
+    <div style="text-align:right">
+      <div class="mono-label" style="margin-bottom:4px">acw / 2026</div>
+      <div class="mono-label" style="color:var(--dm)">documento interno</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TOC ========== -->
+<section class="section dark" id="toc">
+  <div class="page-mark"><span>00 · índice</span><span class="dim">contenido</span></div>
+  <div class="container">
+    <span class="eyebrow reveal">contenido</span>
+    <h2 class="h-xl reveal">Siete capítulos para<br>un <span class="serif-quote gold">sistema visual.</span></h2>
+
+    <div class="toc-grid reveal-stagger">
+      <a class="toc-row" href="#paleta">
+        <span class="toc-num">01</span>
+        <span class="toc-title">Paleta cromática</span>
+        <span class="toc-desc">Cinco colores, jerarquía, proporciones de uso</span>
+        <span class="toc-page">p. 03</span>
+      </a>
+      <a class="toc-row" href="#tipografia">
+        <span class="toc-num">02</span>
+        <span class="toc-title">Tipografía</span>
+        <span class="toc-desc">Display, serif editorial, body, técnica y multilingüe</span>
+        <span class="toc-page">p. 04</span>
+      </a>
+      <a class="toc-row" href="#multilingue">
+        <span class="toc-num">03</span>
+        <span class="toc-title">Sistema multilingüe</span>
+        <span class="toc-desc">El tagline en cinco lenguas, aplicación global</span>
+        <span class="toc-page">p. 05</span>
+      </a>
+      <a class="toc-row" href="#fotografia">
+        <span class="toc-num">04</span>
+        <span class="toc-title">Fotografía</span>
+        <span class="toc-desc">Dirección de arte, tratamientos, composición</span>
+        <span class="toc-page">p. 06</span>
+      </a>
+      <a class="toc-row" href="#social">
+        <span class="toc-num">05</span>
+        <span class="toc-title">Sistema de redes sociales</span>
+        <span class="toc-desc">Feed de Instagram, stories, reels, formatos</span>
+        <span class="toc-page">p. 07</span>
+      </a>
+      <a class="toc-row" href="#reglas">
+        <span class="toc-num">06</span>
+        <span class="toc-title">Reglas de uso</span>
+        <span class="toc-desc">Resumen, errores frecuentes, criterio final</span>
+        <span class="toc-page">p. 08</span>
+      </a>
+      <a class="toc-row" href="#logo">
+        <span class="toc-num">07</span>
+        <span class="toc-title">Logo institucional</span>
+        <span class="toc-desc">El símbolo, aplicaciones, espacio de protección</span>
+        <span class="toc-page">p. 09</span>
+      </a>
+    </div>
+  </div>
+  <div class="page-foot"><span>brandbook · acw</span><span>pág. 02 · 09</span></div>
+</section>
+
+<!-- ========== PALETA ========== -->
+<section class="section dark" id="paleta">
+  <div class="page-mark"><span>01 · paleta cromática</span><span class="dim">color system</span></div>
+  <div class="container">
+    <span class="eyebrow reveal">01 · paleta cromática</span>
+    <h2 class="h-xl reveal" style="margin-bottom:40px; max-width:900px">Cinco colores.<br>Una <span class="serif-quote gold">jerarquía clara.</span></h2>
+    <p class="body-lg reveal" style="max-width:780px; opacity:0.85">La paleta está construida sobre el contraste entre dos protagonistas — navy profundo y crema pergamino — con el oro heritage como único acento de marca. Los dos secundarios son apoyos estructurales: agregan dimensión sin competir.</p>
+
+    <div class="palette-grid reveal-stagger">
+      <div class="swatch" style="background:#0E1B2D; color:#F2EDE4">
+        <span class="swatch-num" style="color:#C9A961">01</span>
+        <div class="swatch-info">
+          <span class="swatch-name">Atlas navy</span>
+          <span class="swatch-hex">#0E1B2D</span>
+          <div class="swatch-meta">
+            <div class="swatch-meta-row"><span class="k">rgb</span><span>14, 27, 45</span></div>
+            <div class="swatch-meta-row"><span class="k">cmyk</span><span>96, 84, 53, 71</span></div>
+            <div class="swatch-meta-row"><span class="k">uso</span><span>primario</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatch" style="background:#1A2A3F; color:#F2EDE4">
+        <span class="swatch-num" style="color:#C9A961">02</span>
+        <div class="swatch-info">
+          <span class="swatch-name">Profundo</span>
+          <span class="swatch-hex">#1A2A3F</span>
+          <div class="swatch-meta">
+            <div class="swatch-meta-row"><span class="k">rgb</span><span>26, 42, 63</span></div>
+            <div class="swatch-meta-row"><span class="k">cmyk</span><span>89, 76, 49, 56</span></div>
+            <div class="swatch-meta-row"><span class="k">uso</span><span>elevación</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatch" style="background:#C9A961; color:#0E1B2D">
+        <span class="swatch-num">03</span>
+        <div class="swatch-info">
+          <span class="swatch-name">Oro heritage</span>
+          <span class="swatch-hex">#C9A961</span>
+          <div class="swatch-meta" style="border-color:rgba(14,27,45,0.4)">
+            <div class="swatch-meta-row"><span class="k">rgb</span><span>201, 169, 97</span></div>
+            <div class="swatch-meta-row"><span class="k">cmyk</span><span>20, 30, 70, 11</span></div>
+            <div class="swatch-meta-row"><span class="k">uso</span><span>acento</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatch" style="background:#F2EDE4; color:#0E1B2D">
+        <span class="swatch-num" style="color:#A88A44">04</span>
+        <div class="swatch-info">
+          <span class="swatch-name">Pergamino</span>
+          <span class="swatch-hex">#F2EDE4</span>
+          <div class="swatch-meta" style="border-color:rgba(14,27,45,0.3)">
+            <div class="swatch-meta-row"><span class="k">rgb</span><span>242, 237, 228</span></div>
+            <div class="swatch-meta-row"><span class="k">cmyk</span><span>4, 5, 10, 0</span></div>
+            <div class="swatch-meta-row"><span class="k">uso</span><span>fondo claro</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatch" style="background:#94A3B8; color:#0E1B2D">
+        <span class="swatch-num">05</span>
+        <div class="swatch-info">
+          <span class="swatch-name">Tinta mapa</span>
+          <span class="swatch-hex">#94A3B8</span>
+          <div class="swatch-meta" style="border-color:rgba(14,27,45,0.4)">
+            <div class="swatch-meta-row"><span class="k">rgb</span><span>148, 163, 184</span></div>
+            <div class="swatch-meta-row"><span class="k">cmyk</span><span>45, 27, 14, 4</span></div>
+            <div class="swatch-meta-row"><span class="k">uso</span><span>secundario</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin-top:64px">
+
+    <div class="palette-usage">
+      <div class="usage-block reveal">
+        <h4 class="h-md">Proporciones de uso.</h4>
+        <p class="body-md" style="opacity:0.75; margin:14px 0 24px">Cada pieza respeta una distribución calibrada. El navy domina como ancla visual, el crema y los grises ofrecen aire y respiro, y el oro aparece quirúrgicamente para marcar lo importante.</p>
+        <ul>
+          <li data-c="nv"><span class="pct">60 %</span><span class="desc">Atlas navy como base dominante.</span></li>
+          <li data-c="cr"><span class="pct">20 %</span><span class="desc">Pergamino como tipografía y respiro.</span></li>
+          <li data-c="nv2"><span class="pct">10 %</span><span class="desc">Profundo para cards y elevación.</span></li>
+          <li data-c="dm"><span class="pct">7 %</span><span class="desc">Tinta mapa en metadata y secundarios.</span></li>
+          <li data-c="gd"><span class="pct">3 %</span><span class="desc">Oro heritage como único acento.</span></li>
+        </ul>
+      </div>
+
+      <div class="usage-block reveal">
+        <h4 class="h-md">Reglas de aplicación.</h4>
+        <p class="body-md" style="opacity:0.75; margin:14px 0 24px">El oro nunca compite con el oro. Cuando una pieza tiene foto dominante, el dorado se reserva exclusivamente para la firma o el acento mínimo del título.</p>
+        <ul style="gap:18px">
+          <li style="grid-template-columns:14px 1fr"><span class="desc">El navy y el crema nunca compiten por jerarquía; uno es protagonista, el otro es soporte.</span></li>
+          <li style="grid-template-columns:14px 1fr"><span class="desc">El oro siempre toca al menos un elemento tipográfico — nunca aparece como bloque vacío sin contenido.</span></li>
+          <li style="grid-template-columns:14px 1fr"><span class="desc">Nunca usamos colores fuera de la paleta. Si una pieza necesita color, agregamos un sexto tono al manual; no improvisamos.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>capítulo 01 · paleta</span><span>pág. 03 · 09</span></div>
+</section>
+
+<!-- ========== TIPOGRAFÍA ========== -->
+<section class="section dark" id="tipografia">
+  <div class="page-mark"><span>02 · tipografía</span><span class="dim">type system</span></div>
+  <div class="container">
+    <span class="eyebrow reveal">02 · tipografía</span>
+    <h2 class="h-xl reveal" style="margin-bottom:40px; max-width:900px">Cinco familias.<br>Una <span class="serif-quote gold">voz coherente.</span></h2>
+    <p class="body-lg reveal" style="max-width:780px; opacity:0.85">El sistema tipográfico combina una sans humanista contemporánea para titulares, un serif editorial para citas y remates emocionales, una sans neutra para cuerpo extenso, una monoespaciada para detalle técnico, y un par dedicado para soporte multilingüe en japonés.</p>
+
+    <div class="type-specimen">
+      <div class="type-card reveal">
+        <div class="type-head">
+          <div class="type-head-left">
+            <span class="number">01 · display principal</span>
+            <span class="name">Inter Tight</span>
+          </div>
+          <div class="type-head-right">Sans humanista · Rasmus Andersson<br>500, 600 · open source</div>
+        </div>
+        <div class="type-display display-tight">Aa <span style="color:var(--gd)">Bb</span> Cc</div>
+        <p class="type-sample">Toda raza. Toda nación. Un hogar.</p>
+        <hr class="rule">
+        <div class="type-meta">
+          <div class="type-meta-item"><span class="label">uso</span><span class="value">Titulares, displays, navegación principal, headlines de campaña</span></div>
+          <div class="type-meta-item"><span class="label">tracking</span><span class="value">−0.02 a −0.04 em según tamaño</span></div>
+          <div class="type-meta-item"><span class="label">pesos</span><span class="value">500 medio · 600 semibold</span></div>
+        </div>
+      </div>
+
+      <div class="type-card cream reveal">
+        <div class="type-head">
+          <div class="type-head-left">
+            <span class="number">02 · serif editorial</span>
+            <span class="name">Source Serif 4</span>
+          </div>
+          <div class="type-head-right">Serif transicional · Frank Grießhammer<br>500 italic · open source</div>
+        </div>
+        <div class="type-display serif-italic" style="color:var(--gd-d)">"Un hogar."</div>
+        <p class="type-sample" style="font-family:var(--serif); font-style:italic">Mi perro siempre fue extraordinario. Ahora el mundo puede verlo.</p>
+        <hr class="rule" style="background:rgba(168,138,68,0.3)">
+        <div class="type-meta">
+          <div class="type-meta-item"><span class="label">uso</span><span class="value">Citas, testimonios, remates emocionales, accent dorado del tagline</span></div>
+          <div class="type-meta-item"><span class="label">estilo</span><span class="value">Solo italic — nunca regular</span></div>
+          <div class="type-meta-item"><span class="label">color</span><span class="value">Siempre en oro heritage</span></div>
+        </div>
+      </div>
+
+      <div class="type-card reveal">
+        <div class="type-head">
+          <div class="type-head-left">
+            <span class="number">03 · cuerpo de texto</span>
+            <span class="name">IBM Plex Sans</span>
+          </div>
+          <div class="type-head-right">Sans corporate · Mike Abbink, Bold Monday<br>400, 500 · open source</div>
+        </div>
+        <div class="type-display body-sans" style="font-size:64px">El vínculo entre un perro y su gente.</div>
+        <p class="type-sample" style="font-family:var(--body); font-size:16px">Criadores, jueces, handlers y dueños de 60 países encuentran por primera vez un hogar común que protege la salud, la diversidad y el linaje canino.</p>
+        <hr class="rule">
+        <div class="type-meta">
+          <div class="type-meta-item"><span class="label">uso</span><span class="value">Cuerpo de texto extenso, copy de redes, descripciones, documentación</span></div>
+          <div class="type-meta-item"><span class="label">tamaño base</span><span class="value">15 px / 18 px line-height 1.65</span></div>
+          <div class="type-meta-item"><span class="label">pesos</span><span class="value">400 regular · 500 medium para énfasis</span></div>
+        </div>
+      </div>
+
+      <div class="type-card reveal">
+        <div class="type-head">
+          <div class="type-head-left">
+            <span class="number">04 · detalle técnico</span>
+            <span class="name">IBM Plex Mono</span>
+          </div>
+          <div class="type-head-right">Mono geométrica · Bold Monday<br>400 · open source</div>
+        </div>
+        <div class="type-display mono-tech">32°31'n 117°02'w</div>
+        <p class="type-sample" style="font-family:var(--mono); font-size:14px; letter-spacing:0.04em">est. 1991 · 60 países · 5 continentes · acw 2026</p>
+        <hr class="rule">
+        <div class="type-meta">
+          <div class="type-meta-item"><span class="label">uso</span><span class="value">Coordenadas, fechas, ids de evento, números de pedigree, eyebrow text editorial</span></div>
+          <div class="type-meta-item"><span class="label">caso</span><span class="value">Siempre lowercase</span></div>
+          <div class="type-meta-item"><span class="label">tracking</span><span class="value">+0.04 a +0.08 em</span></div>
+        </div>
+      </div>
+
+      <div class="type-card reveal">
+        <div class="type-head">
+          <div class="type-head-left">
+            <span class="number">05 · multilingüe cjk</span>
+            <span class="name">Noto Sans / Serif JP</span>
+          </div>
+          <div class="type-head-right">CJK · Google + Adobe<br>500, 600 · open source</div>
+        </div>
+        <div class="type-display jp-sans">あらゆる犬種。</div>
+        <p class="type-sample" style="font-family:var(--jp); font-size:18px">あらゆる国。<span style="font-family:'Noto Serif JP',serif; color:var(--gd)">ひとつの居場所。</span></p>
+        <hr class="rule">
+        <div class="type-meta">
+          <div class="type-meta-item"><span class="label">uso</span><span class="value">Versión japonesa del tagline, comunicación con mercado asiático, eventos en Japón</span></div>
+          <div class="type-meta-item"><span class="label">par</span><span class="value">Sans 600 + Serif 500</span></div>
+          <div class="type-meta-item"><span class="label">extensión</span><span class="value">Aplica a chino y coreano si se requiere</span></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin-top:72px">
+
+    <div style="margin-top:48px" class="reveal">
+      <span class="eyebrow">jerarquía de tamaños</span>
+      <h3 class="h-md" style="margin-bottom:8px">Escala tipográfica.</h3>
+      <p class="body-md" style="opacity:0.75; max-width:680px">Seis niveles jerárquicos cubren del headline editorial al pie de página técnico. Todos los tamaños siguen la misma escala de razón áurea aproximada para mantener proporciones armónicas.</p>
+    </div>
+
+    <div class="scale-grid">
+      <span class="scale-label">display · 88 px</span>
+      <span class="scale-sample" style="font-size:64px">Toda raza.</span>
+      <span class="scale-label">h1 · 56 px</span>
+      <span class="scale-sample" style="font-size:44px">Toda raza, toda nación.</span>
+      <span class="scale-label">h2 · 36 px</span>
+      <span class="scale-sample" style="font-size:32px">Sistema de identidad visual.</span>
+      <span class="scale-label">h3 · 24 px</span>
+      <span class="scale-sample" style="font-size:22px">Capítulo de manual</span>
+      <span class="scale-label">cuerpo · 15 px</span>
+      <span class="scale-sample" style="font-family:var(--body); font-weight:400; font-size:15px; line-height:1.6">Texto principal del documento que comunica detalle.</span>
+      <span class="scale-label">caption · 11 px</span>
+      <span class="scale-sample" style="font-family:var(--mono); font-weight:400; font-size:11px; letter-spacing:0.06em; line-height:1.6">acw · 2026 · documento interno</span>
+    </div>
+  </div>
+  <div class="page-foot"><span>capítulo 02 · tipografía</span><span>pág. 04 · 09</span></div>
+</section>
+
+<!-- ========== MULTILINGÜE ========== -->
+<section class="section dark" id="multilingue">
+  <div class="page-mark"><span>03 · sistema multilingüe</span><span class="dim">global tagline</span></div>
+  <div class="container">
+    <span class="eyebrow reveal">03 · sistema multilingüe</span>
+    <h2 class="h-xl reveal" style="margin-bottom:40px; max-width:900px">Un tagline.<br>Cinco <span class="serif-quote gold">lenguas.</span></h2>
+    <p class="body-lg reveal" style="max-width:780px; opacity:0.85">El tagline es el activo verbal más importante de la marca. Se traduce a cinco idiomas oficiales que cubren los mercados clave actuales (España, Italia, Ecuador, Brasil, Estados Unidos) y el mercado prioritario de expansión (Japón). El remate emocional — "un hogar" en cada lengua — siempre va en Source Serif italic dorado.</p>
+
+    <div class="lang-grid reveal-stagger">
+      <div class="lang-row">
+        <span class="lang-code">es</span>
+        <span class="lang-text">Toda raza. Toda nación. <span class="accent">Un hogar.</span></span>
+      </div>
+      <div class="lang-row">
+        <span class="lang-code">en</span>
+        <span class="lang-text">Every breed. Every nation. <span class="accent">One home.</span></span>
+      </div>
+      <div class="lang-row">
+        <span class="lang-code">it</span>
+        <span class="lang-text">Ogni razza. Ogni nazione. <span class="accent">Una sola casa.</span></span>
+      </div>
+      <div class="lang-row">
+        <span class="lang-code">pt</span>
+        <span class="lang-text">Cada raça. Cada nação. <span class="accent">Um lar.</span></span>
+      </div>
+      <div class="lang-row">
+        <span class="lang-code">ja</span>
+        <span class="lang-text jp">あらゆる犬種。あらゆる国。<span class="accent">ひとつの居場所。</span></span>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin-top:56px">
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:48px" class="reveal">
+      <div>
+        <span class="eyebrow">aplicación digital</span>
+        <h4 class="h-md" style="margin-bottom:14px">Detección automática.</h4>
+        <p class="body-md" style="opacity:0.78">En web y app, el tagline se muestra en el idioma del navegador o dispositivo del usuario. El selector manual de idioma siempre está disponible en el header. La versión inglesa funciona como fallback universal.</p>
+      </div>
+      <div>
+        <span class="eyebrow">aplicación impresa</span>
+        <h4 class="h-md" style="margin-bottom:14px">Por mercado.</h4>
+        <p class="body-md" style="opacity:0.78">Cada pieza impresa o publicitaria utiliza el idioma del país donde se distribuye. En eventos internacionales (campeonatos, shows globales), se usa la versión en cinco lenguas como statement de apertura.</p>
+      </div>
+    </div>
+
+    <div class="voice-example reveal" style="margin-top:48px">
+      <span class="label">nota de producción</span>
+      <p class="quote" style="font-size:16px">Las traducciones a italiano y japonés requieren revisión final con copywriter nativo antes de publicación oficial. La versión actual es funcional para mockups y aprobación interna.</p>
+    </div>
+  </div>
+  <div class="page-foot"><span>capítulo 03 · multilingüe</span><span>pág. 05 · 09</span></div>
+</section>
+
+<!-- ========== FOTOGRAFÍA ========== -->
+<section class="section dark" id="fotografia">
+  <div class="page-mark"><span>04 · fotografía</span><span class="dim">art direction</span></div>
+  <div class="container">
+    <span class="eyebrow reveal">04 · fotografía</span>
+    <h2 class="h-xl reveal" style="margin-bottom:40px; max-width:900px">El perro y su gente.<br>Sin <span class="serif-quote gold">filtros.</span></h2>
+    <p class="body-lg reveal" style="max-width:780px; opacity:0.85">La fotografía es el lenguaje principal de la marca. El sistema visual queda en segundo plano para que el animal y el momento humano lleven el peso. Tres principios estructuran toda decisión de imagen.</p>
+
+    <div class="photo-principles reveal-stagger">
+      <div class="photo-card">
+        <span class="num">principio 01</span>
+        <h4 class="h-md">Documental antes que publicitario.</h4>
+        <p>Buscamos el momento real: el criador en su casa, el juez evaluando, la niña con su perro en el parque. Nunca poses de estudio con fondo blanco infinito ni modelos profesionales contratados.</p>
+      </div>
+      <div class="photo-card">
+        <span class="num">principio 02</span>
+        <h4 class="h-md">Luz natural y honesta.</h4>
+        <p>Luz de ventana, luz de tarde, luz de show indoor real. Evitamos flash directo, luz de estudio cenital y tratamientos de color saturados. La piel y el pelaje del perro deben verse como son.</p>
+      </div>
+      <div class="photo-card">
+        <span class="num">principio 03</span>
+        <h4 class="h-md">El vínculo como protagonista.</h4>
+        <p>La mejor foto no es la del perro solo: es la del perro con su gente. Manos, miradas, gestos pequeños. La cámara está cerca, no a distancia institucional.</p>
+      </div>
+      <div class="photo-card">
+        <span class="num">principio 04</span>
+        <h4 class="h-md">Diversidad real.</h4>
+        <p>Distintos países, distintas razas, distintos perfiles de criadores. Razas nativas marginadas tienen la misma presencia que las populares. Una foto editorial nunca debería poder confundirse con una de la competencia.</p>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin-top:64px">
+
+    <div style="margin-top:48px" class="reveal">
+      <span class="eyebrow">tres tratamientos cromáticos</span>
+      <h3 class="h-md" style="margin-bottom:8px">Mood de color.</h3>
+      <p class="body-md" style="opacity:0.75; max-width:680px">Toda foto pasa por uno de estos tres tratamientos en post-producción. Mantiene coherencia visual sin importar de dónde venga la imagen original.</p>
+    </div>
+
+    <div class="photo-treatments reveal-stagger">
+      <div class="treatment natural">
+        <div>
+          <span class="label">tratamiento 01</span>
+          <div class="title">Natural / Documental</div>
+        </div>
+      </div>
+      <div class="treatment golden">
+        <div>
+          <span class="label">tratamiento 02</span>
+          <div class="title">Cálido / Heritage</div>
+        </div>
+      </div>
+      <div class="treatment dramatic">
+        <div>
+          <span class="label">tratamiento 03</span>
+          <div class="title">Dramático / Cinematográfico</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:48px" class="reveal">
+      <div class="voice-example" style="border-left-color:var(--gd)">
+        <span class="label">cuándo usar cada tratamiento</span>
+        <p class="body-md" style="font-family:var(--body); font-style:normal; opacity:0.85; line-height:1.65">
+          <strong style="color:var(--gd); font-weight:500">Natural</strong> para historias reales y contenido de comunidad en redes.<br>
+          <strong style="color:var(--gd); font-weight:500">Cálido</strong> para piezas heritage, certificados y comunicación institucional.<br>
+          <strong style="color:var(--gd); font-weight:500">Dramático</strong> para campañas hero, video manifiesto y portadas de eventos.
+        </p>
+      </div>
+      <div class="voice-example" style="border-left-color:#E27272">
+        <span class="label" style="color:#E27272">qué no hacemos en fotografía</span>
+        <p class="body-md" style="font-family:var(--body); font-style:normal; opacity:0.85; line-height:1.65">Ninguna foto de stock con perros felices sobre fondo blanco. Ningún tratamiento blanco y negro extremo. Ningún filtro Instagram-preset. Ningún color saturado tropical. Nunca un perro solo posando como producto.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>capítulo 04 · fotografía</span><span>pág. 06 · 09</span></div>
+</section>
+
+<!-- ========== SOCIAL ========== -->
+<section class="section dark" id="social">
+  <div class="page-mark"><span>05 · sistema de redes sociales</span><span class="dim">social system</span></div>
+  <div class="container">
+    <span class="eyebrow reveal">05 · sistema de redes sociales</span>
+    <h2 class="h-xl reveal" style="margin-bottom:40px; max-width:900px">Un feed que se lee<br>como <span class="serif-quote gold">una revista.</span></h2>
+    <p class="body-lg reveal" style="max-width:780px; opacity:0.85">El sistema social está construido sobre tres formatos rotatorios: dato con impacto, historia real, y bloque editorial. Cualquier mes de contenido se compone alternando estos tres tipos para crear un ritmo visual claro y un feed reconocible al primer vistazo.</p>
+
+    <div class="ig-feed reveal">
+      <div class="ig-header">
+        <div class="ig-avatar">ACW</div>
+        <div class="ig-handle">
+          <span class="name">@alianzcanineworldwide</span>
+          <span class="bio">Cinofilia ética desde 1991 · <span class="gold">60 países · 5 continentes</span></span>
+        </div>
+        <div class="ig-stats">
+          <div class="ig-stat"><strong>847</strong>posts</div>
+          <div class="ig-stat"><strong>34.2K</strong>seguidores</div>
+          <div class="ig-stat"><strong>60</strong>siguiendo</div>
+        </div>
+      </div>
+
+      <div class="ig-grid reveal-stagger">
+        <div class="ig-post navy">
+          <span class="ig-mark">a1 · dato 001</span>
+          <span class="ig-bignum">34</span>
+          <span class="ig-eyebrow">Años protegiendo<br>el vínculo</span>
+          <div class="ig-foot"><span>est. 1991</span><span>mad · es</span></div>
+        </div>
+
+        <div class="ig-post cream">
+          <span class="ig-mark">a2 · voces 014</span>
+          <span class="ig-quote" style="color:var(--nv)">"Mi perro siempre fue extraordinario. Ahora el mundo puede verlo."</span>
+          <span class="ig-credit" style="color:var(--nv); opacity:0.65">— Lucía R. · criadora · quito</span>
+          <div class="ig-foot"><span>0°s 78°w</span><span style="color:var(--gd-d); font-family:var(--serif); font-style:italic">Alianz</span></div>
+        </div>
+
+        <div class="ig-post navy">
+          <span class="ig-mark">a3 · atlas 060</span>
+          <div class="ig-dot-pattern">
+            <svg viewBox="0 0 200 100" width="100%" height="80">
+              <line x1="22" y1="38" x2="62" y2="32" stroke="#C9A961" stroke-width="0.3" opacity="0.4"/>
+              <line x1="62" y1="32" x2="100" y2="36" stroke="#C9A961" stroke-width="0.3" opacity="0.4"/>
+              <line x1="100" y1="36" x2="150" y2="40" stroke="#C9A961" stroke-width="0.3" opacity="0.4"/>
+              <line x1="150" y1="40" x2="175" y2="55" stroke="#C9A961" stroke-width="0.3" opacity="0.4"/>
+              <line x1="38" y1="62" x2="80" y2="65" stroke="#C9A961" stroke-width="0.3" opacity="0.35"/>
+              <line x1="80" y1="65" x2="135" y2="62" stroke="#C9A961" stroke-width="0.3" opacity="0.35"/>
+              <circle cx="22" cy="38" r="1" fill="#C9A961" opacity="0.5"/>
+              <circle cx="62" cy="32" r="2" fill="#C9A961"/>
+              <circle cx="100" cy="36" r="2.5" fill="#C9A961"/>
+              <circle cx="135" cy="40" r="1.4" fill="#C9A961" opacity="0.6"/>
+              <circle cx="150" cy="40" r="2" fill="#C9A961"/>
+              <circle cx="175" cy="55" r="1.6" fill="#C9A961" opacity="0.7"/>
+              <circle cx="38" cy="62" r="1.5" fill="#C9A961" opacity="0.6"/>
+              <circle cx="80" cy="65" r="2.5" fill="#C9A961"/>
+              <circle cx="135" cy="62" r="1.8" fill="#C9A961" opacity="0.7"/>
+            </svg>
+          </div>
+          <span class="ig-tag">Every breed.<br>Every nation.<br><span class="accent">One home.</span></span>
+          <div class="ig-foot"><span>60 países</span><span>5 cont.</span></div>
+        </div>
+
+        <div class="ig-post gold">
+          <span class="ig-mark">a4 · pilar 01</span>
+          <span class="ig-pillar-num">01</span>
+          <span class="ig-pillar">Orgullo.</span>
+          <div class="ig-foot"><span>los pilares</span><span>tres principios</span></div>
+        </div>
+
+        <div class="ig-post photo">
+          <div class="ig-photo-overlay"></div>
+          <div class="ig-photo-content">
+            <span class="ig-mark">a2 · voces 015</span>
+            <span class="ig-quote" style="margin-top:auto">"Tres décadas registrando linajes. Una sola misión."</span>
+            <span class="ig-credit">— Dr. Mario L. · juez internacional · madrid</span>
+            <div class="ig-foot" style="margin-top:8px"><span>40°25'n 3°42'w</span><span style="color:var(--gd)">Alianz</span></div>
+          </div>
+        </div>
+
+        <div class="ig-post navy">
+          <span class="ig-mark">a1 · dato 002</span>
+          <span class="ig-bignum">60</span>
+          <span class="ig-eyebrow">Países conectados<br>por un mismo estándar</span>
+          <div class="ig-foot"><span>5 continentes</span><span>2026</span></div>
+        </div>
+
+        <div class="ig-post navy">
+          <span class="ig-mark">a4 · pilar 02</span>
+          <span class="ig-pillar-num">02</span>
+          <span class="ig-pillar">Pertenencia.</span>
+          <div class="ig-foot"><span>los pilares</span><span>tres principios</span></div>
+        </div>
+
+        <div class="ig-post cream">
+          <span class="ig-mark">a5 · tagline</span>
+          <span class="ig-tag" style="margin-top:auto; font-size:17px">Toda raza.<br>Toda nación.<br><span class="accent">Un hogar.</span></span>
+          <div class="ig-foot"><span>esp · eng · ita</span><span>por · jpn</span></div>
+        </div>
+
+        <div class="ig-post navy">
+          <span class="ig-mark">a1 · dato 003</span>
+          <span class="ig-bignum">141</span>
+          <span class="ig-eyebrow">Jueces certificados<br>en cuatro especialidades</span>
+          <div class="ig-foot"><span>2026</span><span>training section</span></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin-top:64px">
+
+    <div class="story-section reveal">
+      <span class="eyebrow">formato 9:16 · stories e historias</span>
+      <h3 class="h-md" style="margin-bottom:8px">Stories.</h3>
+      <p class="body-md" style="opacity:0.75; max-width:680px">Los stories siguen la misma lógica del feed pero adaptados a vertical. Cuatro plantillas base cubren la mayoría de los casos: anuncio editorial, frase de manifiesto, fragmento de historia real, y promoción de evento.</p>
+    </div>
+
+    <div class="story-grid reveal-stagger">
+      <div class="story navy">
+        <span class="mark">stories · template 01</span>
+        <div class="center">
+          <span class="lead">capítulo</span>
+          <span class="big">Nuevo registro<br>desde Quito.</span>
+          <span class="sub">ecuador · 2026</span>
+        </div>
+        <div class="foot"><span>0°s 78°w</span><span>acw</span></div>
+      </div>
+
+      <div class="story cream">
+        <span class="mark">stories · template 02</span>
+        <div class="center">
+          <span class="lead">"</span>
+          <span class="big serif">El vínculo entre un perro y su gente nunca caduca.</span>
+          <span class="sub">manifiesto · cap. 01</span>
+        </div>
+        <div class="foot"><span>acw</span><span>2026</span></div>
+      </div>
+
+      <div class="story gradient">
+        <span class="mark">stories · template 03</span>
+        <div class="center">
+          <span class="lead">próximo evento</span>
+          <span class="big">Campeonato<br>Europeo de<br>Grooming.</span>
+          <span class="sub">milán · 14 marzo</span>
+        </div>
+        <div class="foot"><span>45°n 9°e</span><span>register →</span></div>
+      </div>
+
+      <div class="story photo">
+        <span class="mark">stories · template 04</span>
+        <div class="center">
+          <span class="lead">historias reales</span>
+          <span class="big serif">Lucía y Tika.<br>Cinco años.</span>
+          <span class="sub">quito · ecuador</span>
+        </div>
+        <div class="foot"><span>voces 014</span><span style="color:var(--gd)">Alianz</span></div>
+      </div>
+    </div>
+
+    <div class="reels-section reveal">
+      <span class="eyebrow">formato 9:16 · reels y video corto</span>
+      <h3 class="h-md" style="margin-bottom:8px">Reels covers.</h3>
+      <p class="body-md" style="opacity:0.75; max-width:680px">La portada de cada reel mantiene el mismo lenguaje visual: titular grande Inter Tight, eyebrow mono dorado, pause visual con play indicator centrado. El video puede vivir en formato documental, dato, o narrativo.</p>
+    </div>
+
+    <div class="reels-grid reveal-stagger">
+      <div class="reel deep">
+        <span class="reel-mark">reel · 01 · manifiesto</span>
+        <div class="reel-play"></div>
+        <span class="reel-title">¿Qué hace<br>que un perro<br>sea <span class="serif" style="color:var(--gd)">oficial?</span></span>
+        <span class="reel-sub">90 segundos · manifiesto</span>
+      </div>
+
+      <div class="reel warm">
+        <span class="reel-mark">reel · 02 · historia</span>
+        <div class="reel-play"></div>
+        <span class="reel-title serif">Cinco años<br>de Tika.</span>
+        <span class="reel-sub">historias reales · ecuador</span>
+      </div>
+
+      <div class="reel deep">
+        <span class="reel-mark">reel · 03 · dato</span>
+        <div class="reel-play"></div>
+        <span class="reel-title">34 años.<br><span class="serif" style="color:var(--gd)">Un solo</span><br>vínculo.</span>
+        <span class="reel-sub">15 segundos · dato hero</span>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>capítulo 05 · sistema social</span><span>pág. 07 · 09</span></div>
+</section>
+
+<!-- ========== REGLAS ========== -->
+<section class="section dark" id="reglas">
+  <div class="page-mark"><span>06 · reglas de uso</span><span class="dim">brand governance</span></div>
+  <div class="container">
+    <span class="eyebrow reveal">06 · reglas de uso</span>
+    <h2 class="h-xl reveal" style="margin-bottom:40px; max-width:900px">Diez reglas.<br><span class="serif-quote gold">No más, no menos.</span></h2>
+    <p class="body-lg reveal" style="max-width:780px; opacity:0.85">Cuando una decisión visual no esté cubierta en los capítulos anteriores, estas diez reglas funcionan como criterio final. El sistema evoluciona, pero estos diez principios son no negociables.</p>
+
+    <div class="rules-grid">
+      <div class="rules-col do reveal">
+        <h4 class="h-md">Siempre.</h4>
+        <div class="rule-item">
+          <span class="mark">01</span>
+          <span class="text">La paleta es de cinco colores. Punto. No se introducen colores nuevos sin autorización.</span>
+        </div>
+        <div class="rule-item">
+          <span class="mark">02</span>
+          <span class="text">El oro heritage siempre toca tipografía, nunca aparece como bloque vacío.</span>
+        </div>
+        <div class="rule-item">
+          <span class="mark">03</span>
+          <span class="text">Cada pieza activa al menos uno de los tres pilares: orgullo, pertenencia o legado.</span>
+        </div>
+        <div class="rule-item">
+          <span class="mark">04</span>
+          <span class="text">El remate del tagline va en Source Serif italic dorado, en los cinco idiomas.</span>
+        </div>
+        <div class="rule-item">
+          <span class="mark">05</span>
+          <span class="text">Toda fotografía pasa por uno de los tres tratamientos definidos. Sin excepción.</span>
+        </div>
+      </div>
+
+      <div class="rules-col dont reveal">
+        <h4 class="h-md">Nunca.</h4>
+        <div class="rule-item">
+          <span class="mark">06</span>
+          <span class="text">No se usan emojis decorativos en copy oficial. Los signos de admiración múltiples están prohibidos.</span>
+        </div>
+        <div class="rule-item">
+          <span class="mark">07</span>
+          <span class="text">No se compara ni critica directamente a FCI, AKC ni otras organizaciones competidoras.</span>
+        </div>
+        <div class="rule-item">
+          <span class="mark">08</span>
+          <span class="text">No se usa fotografía de stock con perros sobre fondo blanco infinito. Documental, siempre.</span>
+        </div>
+        <div class="rule-item">
+          <span class="mark">09</span>
+          <span class="text">No se introducen fuentes nuevas. Las cinco familias del sistema cubren cualquier necesidad.</span>
+        </div>
+        <div class="rule-item">
+          <span class="mark">10</span>
+          <span class="text">No se mezcla el oro con otros acentos cromáticos. El dorado vive solo dentro del sistema.</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin-top:64px">
+
+    <div class="voice-example reveal" style="margin-top:48px; max-width:780px">
+      <span class="label">criterio final</span>
+      <p class="quote">Si una pieza no se siente a la altura de una organización de 34 años con presencia en 60 países, no sale. Si Alianz no la pudiera firmar con orgullo, no sale. La autoridad no se prueba: se ejerce con consistencia.</p>
+    </div>
+  </div>
+  <div class="page-foot"><span>capítulo 06 · reglas</span><span>pág. 08 · 09</span></div>
+</section>
+
+<!-- ========== LOGO ========== -->
+<section class="section dark" id="logo">
+  <div class="page-mark"><span>07 · logo institucional</span><span class="dim">brand mark</span></div>
+  <div class="container">
+    <span class="eyebrow reveal">07 · logo institucional</span>
+    <h2 class="h-xl reveal" style="margin-bottom:40px; max-width:900px">Un símbolo.<br>Reconocible en <span class="serif-quote gold">cualquier fondo.</span></h2>
+    <p class="body-lg reveal" style="max-width:780px; opacity:0.85">El globo con la cinta es la marca oficial de Alianz Canine Worldwide — representa el alcance global de la organización y su carácter de estándar único, sin importar el país. Es el único logo autorizado a partir de esta versión del sistema.</p>
+
+    <div class="logo-showcase reveal" style="margin-top:56px; display:flex; align-items:center; justify-content:center; padding:80px; background:var(--nv2); border-radius:8px">
+      <img src="alianz_logo_globe.png" alt="Alianz Canine Worldwide" style="width:220px; height:auto">
+    </div>
+
+    <hr class="rule" style="margin-top:64px">
+
+    <div class="palette-usage">
+      <div class="usage-block reveal">
+        <h4 class="h-md">Espacio de protección.</h4>
+        <p class="body-md" style="opacity:0.75; margin:14px 0 24px">El logo siempre necesita aire alrededor — nunca debe tocar el borde de una pieza ni competir con texto u otros elementos cercanos.</p>
+        <ul>
+          <li style="grid-template-columns:14px 1fr"><span class="desc">Espacio mínimo libre alrededor: el equivalente al ancho del propio globo.</span></li>
+          <li style="grid-template-columns:14px 1fr"><span class="desc">Tamaño mínimo de reproducción: 64px de ancho en digital, 2cm en impreso.</span></li>
+        </ul>
+      </div>
+
+      <div class="usage-block reveal">
+        <h4 class="h-md">Reglas de aplicación.</h4>
+        <p class="body-md" style="opacity:0.75; margin:14px 0 24px">El logo es un activo cerrado — no se modifica bajo ninguna circunstancia.</p>
+        <ul style="gap:18px">
+          <li style="grid-template-columns:14px 1fr"><span class="desc">Nunca se recolorea, se distorsiona, se rota ni se le agregan efectos.</span></li>
+          <li style="grid-template-columns:14px 1fr"><span class="desc">Se reproduce siempre completo — nunca se recorta ni se separan sus elementos.</span></li>
+          <li style="grid-template-columns:14px 1fr"><span class="desc">Sobre fondos claros o con foto de bajo contraste, se usa la versión con halo o placa de color sólido detrás.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>capítulo 07 · logo</span><span>pág. 09 · 09</span></div>
+</section>
+
+<!-- ========== COLOFÓN ========== -->
+<section class="colophon">
+  <div class="colophon-block">
+    <span class="mono-label" style="color:var(--gd-d); margin-bottom:14px; display:block">colofón</span>
+    <h4>Sistema visual<br>Alianz Canine Worldwide</h4>
+    <p class="body-md" style="margin:18px 0 24px; color:var(--dm-d); max-width:420px">Este documento describe el sistema visual y de comunicación de la marca. Su distribución se limita a personal autorizado y agencias colaboradoras del proyecto.</p>
+    <dl>
+      <dt>versión</dt><dd>01 · marzo 2026</dd>
+      <dt>edición</dt><dd>Atlas Cinológico</dd>
+      <dt>dirección</dt><dd>Tijuana, Baja California, México</dd>
+      <dt>coordenadas</dt><dd style="font-family:var(--mono); font-size:12px">32°31'n 117°02'w</dd>
+    </dl>
+  </div>
+
+  <div class="colophon-block">
+    <span class="mono-label" style="color:var(--gd-d); margin-bottom:14px; display:block">sistema técnico</span>
+    <h4>Tipografías y recursos</h4>
+    <dl style="margin-top:18px">
+      <dt>display</dt><dd>Inter Tight · fonts.google.com</dd>
+      <dt>serif</dt><dd>Source Serif 4 · fonts.google.com</dd>
+      <dt>cuerpo</dt><dd>IBM Plex Sans · fonts.google.com</dd>
+      <dt>técnica</dt><dd>IBM Plex Mono · fonts.google.com</dd>
+      <dt>cjk</dt><dd>Noto Sans / Serif JP · fonts.google.com</dd>
+      <dt>licencia</dt><dd>Todas las tipografías son open source bajo SIL Open Font License</dd>
+    </dl>
+    <hr class="rule" style="margin:24px 0; background:rgba(168,138,68,0.3)">
+    <p class="body-sm" style="color:var(--dm-d); margin-top:14px">El logo institucional y sus reglas de uso están incluidos en el capítulo 07. Su propiedad y autorización de uso siguen siendo responsabilidad exclusiva de Alianz Canine Worldwide HQ.</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
